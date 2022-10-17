@@ -50,7 +50,7 @@ const miniItems = document.getElementsByClassName('mini');
 
 let counterImages = 0;
 items[counterImages].classList.remove('hide');
-
+miniItems[counterImages].classList.add('thumb-active');
 
 //al click cambio l'immagine attiva dello slider e della miniatura
 
