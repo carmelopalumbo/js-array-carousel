@@ -31,3 +31,16 @@ const items = document.getElementsByClassName('item');
 let counterImages = 0;
 items[counterImages].classList.remove('hide');
 
+
+//al click cambio l'immagine attiva
+
+const next = document.querySelector('.next');
+const previous = document.querySelector('.previous');
+
+previous.addEventListener('click', function(){
+    console.log('click previous');
+})
+
+next.addEventListener('click', function(){
+    console.log('click next');
+})
