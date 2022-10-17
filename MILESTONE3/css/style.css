@@ -12,10 +12,6 @@
     display: none;
 }
 
-.active{
-    display: block;
-}
-
 main{
     display: flex;
     justify-content: center;

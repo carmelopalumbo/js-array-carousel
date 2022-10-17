@@ -38,9 +38,26 @@ const next = document.querySelector('.next');
 const previous = document.querySelector('.previous');
 
 previous.addEventListener('click', function(){
-    console.log('click previous');
-})
+    //console.log('click previous');
+    if(counterImages === 0){
+        items[counterImages].classList.add('hide');
+        counterImages = items.length - 1;
+        items[counterImages].classList.remove('hide');
+    }else{
+    items[counterImages].classList.add('hide');
+    items[--counterImages].classList.remove('hide');
+    }
+});
 
 next.addEventListener('click', function(){
-    console.log('click next');
-})
+    //console.log('click next');
+    if(counterImages === items.length - 1){
+        items[counterImages].classList.add('hide');
+        counterImages = 0;
+        items[counterImages].classList.remove('hide');
+    }else{
+    items[counterImages].classList.add('hide');
+    items[++counterImages].classList.remove('hide');
+    }
+    
+});
