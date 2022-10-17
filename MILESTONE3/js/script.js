@@ -26,13 +26,33 @@ slider.innerHTML = imgTags;
 
 const items = document.getElementsByClassName('item');
 
+
+//inserisco thumbnails
+
+const thumbnails = document.querySelector('.thumbnails-box');
+
+let thumbTags = '';
+
+ for(i = 0; i < images.length; i++){
+    thumbTags += `<img src="img/${images[i]}" alt="${images[i]}" class="mini">`;
+ }
+
+thumbnails.innerHTML = thumbTags;
+
+//console.log(slider);
+
+//salvo in una collection tutti gli elementi html che hanno la classe 'item'
+
+const miniItems = document.getElementsByClassName('mini');
+
+
 //rimuovo d-none al primo elemento dell array
 
 let counterImages = 0;
 items[counterImages].classList.remove('hide');
 
 
-//al click cambio l'immagine attiva
+//al click cambio l'immagine attiva dello slider e della miniatura
 
 const next = document.querySelector('.next');
 const previous = document.querySelector('.previous');
@@ -40,24 +60,39 @@ const previous = document.querySelector('.previous');
 previous.addEventListener('click', function(){
     //console.log('click previous');
     if(counterImages === 0){
+        miniItems[counterImages].classList.remove('thumb-active');
+
         items[counterImages].classList.add('hide');
         counterImages = items.length - 1;
         items[counterImages].classList.remove('hide');
+
+        miniItems[counterImages].classList.add('thumb-active');
     }else{
-    items[counterImages].classList.add('hide');
-    items[--counterImages].classList.remove('hide');
+        miniItems[counterImages].classList.remove('thumb-active');
+
+        items[counterImages].classList.add('hide');
+        items[--counterImages].classList.remove('hide');
+
+        miniItems[counterImages].classList.add('thumb-active');
     }
 });
 
 next.addEventListener('click', function(){
     //console.log('click next');
     if(counterImages === items.length - 1){
+        miniItems[counterImages].classList.remove('thumb-active');
+
         items[counterImages].classList.add('hide');
         counterImages = 0;
         items[counterImages].classList.remove('hide');
+
+        miniItems[counterImages].classList.add('thumb-active');
     }else{
-    items[counterImages].classList.add('hide');
-    items[++counterImages].classList.remove('hide');
-    }
-    
+        miniItems[counterImages].classList.remove('thumb-active');
+
+        items[counterImages].classList.add('hide');
+        items[++counterImages].classList.remove('hide');
+
+        miniItems[counterImages].classList.add('thumb-active');
+        }
 });
