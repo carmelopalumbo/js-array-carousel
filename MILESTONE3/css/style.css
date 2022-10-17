@@ -65,6 +65,12 @@ main{
     text-align: center;
     border-radius: 50%;
     opacity: .7;
+    transition: 0.5s;
+}
+
+.next:hover, .previous:hover{
+    background-color: white;
+    opacity: .9;
 }
 
 .thumbnails-box{
